@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cafeaura - Campus Cafeteria App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; background: #fff; color: #222; overflow-x: hidden; }
+
+    /* Hero Section */
+    .hero {
+        height: 100vh;
+        background: url("images/bg.png") no-repeat center center/cover;
+        display: flex; flex-direction: column; justify-content: center; align-items: center;
+        text-align: center; color: white; padding: 2rem;
+        position: relative;
+    }
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.4); /* dark overlay for readability */
+    }
+    .hero * {
+        position: relative; /* ensures text/logo is above overlay */
+    }
+
+    .hero img {
+      width: 120px; animation: float 3s ease-in-out infinite;
+    }
+    .hero h1 { font-size: 3rem; margin: 1rem 0; }
+    .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
+    .btn {
+      padding: 1rem 2rem; background: white; color: #ff5100;
+      font-weight: bold; border: none; border-radius: 30px;
+      cursor: pointer; transition: 0.3s; text-decoration: none;
+    }
+    .btn:hover { background: #222; color: white; }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* Section Styles */
+    section { padding: 5rem 2rem; text-align: center; }
+    .features, .how-it-works { background: #f9f9f9; }
+    h2 { font-size: 2rem; margin-bottom: 1rem; color: #ff5100; }
+    p { max-width: 600px; margin: auto; margin-bottom: 2rem; }
+
+    .grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem; margin-top: 2rem;
+    }
+    .card {
+      background: white; padding: 2rem; border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .card:hover { transform: translateY(-10px); }
+
+    /* Contact */
+    .contact {
+      background: #fff4ec;
+      border-top: 3px solid #ff5100;
+    }
+    .contact-info {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+    }
+    .contact-info a {
+      color: #ff5100;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      background: #222; color: white; padding: 1rem; text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <!-- <img src="images/logo.png" alt="Cafeaura Logo">
+    <h1>Cafeaura</h1> -->
+    <p>Order your favorites. Pay online. Skip the queue.</p>
+    <a href="app-release (1).apk" download class="btn">📥 Download APK</a>
+  </div>
+
+  <!-- About -->
+  <section class="about">
+    <h2>About Cafeaura</h2>
+    <p>Cafeaura is built for students within campus to easily order tea, coffee, snacks, and meals from the cafeteria without waiting in long queues. Simply browse the menu, pay securely, and collect your order!</p>
+    <img src="images/bg.png" alt="Cafeaura Poster" width="60%" style="border-radius:20px; margin-top:2rem;">
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <h2>Why Cafeaura?</h2>
+    <div class="grid">
+      <div class="card">🚀 <h3>No Waiting</h3><p>Order remotely and skip the cafeteria queue.</p></div>
+      <div class="card">💳 <h3>Easy Payments</h3><p>Pay securely with online payment integration.</p></div>
+      <div class="card">☕ <h3>Fresh & Fast</h3><p>Collect your order quickly, made fresh for you.</p></div>
+    </div>
+  </section>
+
+  <!-- How it Works -->
+  <section class="how-it-works">
+    <h2>How It Works</h2>
+    <div class="grid">
+      <div class="card"><h3>1️⃣ Browse</h3><p>Select items from the cafeteria menu.</p><img src="images/i3.jpeg" width="100%"></div>
+      <div class="card"><h3>2️⃣ Pay</h3><p>Pay securely online without cash.</p><img src="images/i2.jpeg" width="100%"></div>
+      <div class="card"><h3>3️⃣ Collect</h3><p>Show your QR code and collect instantly.</p><img src="images/i1.jpeg" width="100%"></div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section>
+    <h2>Get Started Now</h2>
+    <p>Download Cafeaura and enjoy queue-free cafeteria experience!</p>
+    <a href="downloads/Cafeaura.apk" download class="btn">📥 Download APK</a>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-info">📧 Email: <a href="mailto:mohammedsafil039@gmail.com">mohammedsafil039@gmail.com</a></div>
+    <div class="contact-info">📞 Phone: <a href="tel:+919789378657">+91 97893 78657</a></div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Cafeaura | Built for Campus Cafeteria</p>
+  </footer>
+
+</body>
+</html>
