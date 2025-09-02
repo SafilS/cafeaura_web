@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refund & Cancellation Policy - Cafeaura</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #ff6b35;
+      --primary-dark: #e55a2b;
+      --secondary: #2c3e50;
+      --accent: #f39c12;
+      --text-dark: #2c3e50;
+      --text-light: #7f8c8d;
+      --bg-light: #f8f9fa;
+      --bg-white: #ffffff;
+      --shadow: 0 10px 30px rgba(0,0,0,0.1);
+      --shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
+      --gradient: linear-gradient(135deg, #ff6b35 0%, #f39c12 100%);
+      --gradient-dark: linear-gradient(135deg, #e55a2b 0%, #d68910 100%);
+    }
+
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+
+    body { 
+      font-family: 'Inter', sans-serif; 
+      background: var(--bg-white); 
+      color: var(--text-dark); 
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      z-index: 1000;
+      padding: 1rem 0;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Page Header */
+    .page-header {
+      background: var(--gradient);
+      color: white;
+      padding: 8rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      animation: float 20s linear infinite;
+    }
+
+    .page-header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .page-header h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .page-header p {
+      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+      opacity: 0.95;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .section-header p {
+      max-width: 600px;
+      margin: 0 auto;
+      color: var(--text-light);
+      font-size: 1.1rem;
+    }
+
+    /* Policy Content */
+    .policy-content {
+      background: var(--bg-white);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .policy-section {
+      padding: 2.5rem;
+      border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+    }
+
+    .policy-section:last-child {
+      border-bottom: none;
+    }
+
+    .policy-section h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .policy-section h3 i {
+      font-size: 1.2rem;
+    }
+
+    .policy-section p {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    .policy-section ul {
+      color: var(--text-light);
+      margin: 1rem 0 1rem 1.5rem;
+      line-height: 1.7;
+    }
+
+    .policy-section li {
+      margin-bottom: 0.8rem;
+    }
+
+    .policy-section strong {
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
+    .policy-section .highlight {
+      background: rgba(255, 107, 53, 0.1);
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--primary);
+      margin: 1rem 0;
+    }
+
+    .policy-section .highlight p {
+      margin: 0;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .policy-section .warning {
+      background: rgba(243, 156, 18, 0.1);
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent);
+      margin: 1rem 0;
+    }
+
+    .policy-section .warning p {
+      margin: 0;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .policy-section .info {
+      background: rgba(52, 152, 219, 0.1);
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 4px solid #3498db;
+      margin: 1rem 0;
+    }
+
+    .policy-section .info p {
+      margin: 0;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    /* Table of Contents */
+    .toc {
+      background: var(--bg-light);
+      padding: 2rem;
+      border-radius: 15px;
+      margin-bottom: 3rem;
+      border: 1px solid rgba(255, 107, 53, 0.1);
+    }
+
+    .toc h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .toc ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .toc li {
+      margin-bottom: 0.5rem;
+    }
+
+    .toc a {
+      color: var(--text-dark);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .toc a:hover {
+      color: var(--primary);
+    }
+
+    .toc a i {
+      font-size: 0.8rem;
+      color: var(--primary);
+    }
+
+    /* Last Updated */
+    .last-updated {
+      background: var(--bg-light);
+      padding: 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+      margin-bottom: 3rem;
+      border: 1px solid rgba(255, 107, 53, 0.1);
+    }
+
+    .last-updated p {
+      color: var(--text-light);
+      margin: 0;
+    }
+
+    .last-updated strong {
+      color: var(--primary);
+    }
+
+    /* Quick Reference */
+    .quick-reference {
+      background: var(--bg-light);
+      padding: 2rem;
+      border-radius: 15px;
+      margin-bottom: 3rem;
+      border: 1px solid rgba(255, 107, 53, 0.1);
+    }
+
+    .quick-reference h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-size: 1.3rem;
+    }
+
+    .ref-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .ref-item {
+      background: var(--bg-white);
+      padding: 1.5rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 107, 53, 0.1);
+      text-align: center;
+    }
+
+    .ref-item .icon {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .ref-item h4 {
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .ref-item .time {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    .ref-item .description {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: var(--bg-light);
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .contact-section h3 {
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    .contact-section p {
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .contact-item a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--secondary);
+      color: white;
+      padding: 3rem 2rem 1rem;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    .footer-section h4 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-section p, .footer-section a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      line-height: 1.6;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .policy-section {
+        padding: 2rem 1.5rem;
+      }
+
+      .ref-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-info {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Cafeaura</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="contact-us.html">Contact</a></li>
+        <li><a href="privacy-policy.html">Privacy</a></li>
+        <li><a href="terms-conditions.html">Terms</a></li>
+        <li><a href="refund-policy.html">Refund</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="page-header-content">
+      <h1>Refund & Cancellation Policy</h1>
+      <p>Understanding our policies for order modifications, cancellations, and refunds</p>
+    </div>
+  </div>
+
+  <!-- Last Updated -->
+  <section>
+    <div class="container">
+      <div class="last-updated">
+        <p><strong>Last Updated:</strong> January 15, 2025</p>
+        <p>This policy outlines the terms and conditions for order cancellations, refunds, and related matters when using the Cafeaura platform.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Reference -->
+  <section>
+    <div class="container">
+      <div class="quick-reference">
+        <h3><i class="fas fa-clock"></i> Quick Reference Guide</h3>
+        <div class="ref-grid">
+          <div class="ref-item">
+            <div class="icon"><i class="fas fa-check-circle"></i></div>
+            <h4>Full Refund</h4>
+            <div class="time">Within 5 minutes</div>
+            <div class="description">Before preparation starts</div>
+          </div>
+          <div class="ref-item">
+            <div class="icon"><i class="fas fa-percentage"></i></div>
+            <h4>Partial Refund</h4>
+            <div class="time">50% refund</div>
+            <div class="description">After 5 minutes, before completion</div>
+          </div>
+          <div class="ref-item">
+            <div class="icon"><i class="fas fa-times-circle"></i></div>
+            <h4>No Refund</h4>
+            <div class="time">After completion</div>
+            <div class="description">Once order is ready for pickup</div>
+          </div>
+          <div class="ref-item">
+            <div class="icon"><i class="fas fa-exclamation-triangle"></i></div>
+            <h4>Quality Issues</h4>
+            <div class="time">Full refund</div>
+            <div class="description">Within 30 minutes of pickup</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Table of Contents -->
+  <section>
+    <div class="container">
+      <div class="toc">
+        <h3><i class="fas fa-list"></i> Table of Contents</h3>
+        <ul>
+          <li><a href="#order-cancellation"><i class="fas fa-chevron-right"></i> Order Cancellation</a></li>
+          <li><a href="#refund-process"><i class="fas fa-chevron-right"></i> Refund Process</a></li>
+          <li><a href="#quality-issues"><i class="fas fa-chevron-right"></i> Quality Issues</a></li>
+          <li><a href="#delivery-delays"><i class="fas fa-chevron-right"></i> Delivery Delays</a></li>
+          <li><a href="#special-circumstances"><i class="fas fa-chevron-right"></i> Special Circumstances</a></li>
+          <li><a href="#refund-methods"><i class="fas fa-chevron-right"></i> Refund Methods</a></li>
+          <li><a href="#dispute-resolution"><i class="fas fa-chevron-right"></i> Dispute Resolution</a></li>
+          <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Information</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Policy Content -->
+  <section>
+    <div class="container">
+      <div class="policy-content">
+        
+        <div class="policy-section" id="order-cancellation">
+          <h3><i class="fas fa-times-circle"></i> 1. Order Cancellation</h3>
+          <p>Orders can be cancelled under the following conditions and timeframes:</p>
+          
+          <div class="highlight">
+            <p><strong>Before Preparation (0-5 minutes):</strong> Full refund available if cancelled within 5 minutes of order placement</p>
+          </div>
+          
+          <div class="warning">
+            <p><strong>During Preparation (5+ minutes):</strong> Partial refund (50%) if cancelled after 5 minutes but before completion</p>
+          </div>
+          
+          <div class="info">
+            <p><strong>After Completion:</strong> No cancellation possible once order is ready for pickup</p>
+          </div>
+          
+          <p><strong>Important Notes:</strong></p>
+          <ul>
+            <li>Cancellation requests must be made through the app or by contacting our support team</li>
+            <li>Time is calculated from the moment the order is confirmed</li>
+            <li>Orders that have already started preparation cannot be fully cancelled</li>
+            <li>Bulk orders may have different cancellation policies</li>
+          </ul>
+        </div>
+
+        <div class="policy-section" id="refund-process">
+          <h3><i class="fas fa-undo"></i> 2. Refund Process</h3>
+          <p>Refunds are processed according to the following guidelines:</p>
+          
+          <ul>
+            <li><strong>Processing Time:</strong> 3-5 business days for credit/debit cards</li>
+            <li><strong>Digital Wallets:</strong> 24-48 hours for UPI, Paytm, PhonePe, etc.</li>
+            <li><strong>Net Banking:</strong> 2-3 business days</li>
+            <li><strong>Cash Refunds:</strong> Available at campus cafeterias within 24 hours</li>
+          </ul>
+          
+          <div class="highlight">
+            <p><strong>Refund Confirmation:</strong> You will receive an email confirmation when your refund is processed, including the refund amount and method.</p>
+          </div>
+          
+          <p><strong>Refund Eligibility:</strong></p>
+          <ul>
+            <li>Orders cancelled within the specified timeframes</li>
+            <li>Orders with quality issues reported within 30 minutes</li>
+            <li>Orders affected by system errors or technical issues</li>
+            <li>Orders cancelled due to campus closures or emergencies</li>
+          </ul>
+        </div>
+
+        <div class="policy-section" id="quality-issues">
+          <h3><i class="fas fa-exclamation-triangle"></i> 3. Quality Issues</h3>
+          <p>If you receive food that doesn't meet quality standards:</p>
+          
+          <div class="warning">
+            <p><strong>Immediate Action Required:</strong> Contact us immediately (within 30 minutes of pickup) to report quality issues</p>
+          </div>
+          
+          <ul>
+            <li><strong>Documentation:</strong> Provide photos if possible for faster resolution</li>
+            <li><strong>Replacement:</strong> We'll arrange for replacement or full refund</li>
+            <li><strong>No Questions Asked:</strong> Genuine quality concerns are addressed without additional verification</li>
+            <li><strong>Compensation:</strong> Additional compensation may be offered for significant issues</li>
+          </ul>
+          
+          <p><strong>Common Quality Issues Covered:</strong></p>
+          <ul>
+            <li>Food that is cold when it should be hot</li>
+            <li>Food that is spoiled or has an off taste</li>
+            <li>Incorrect items or missing components</li>
+            <li>Food that appears to be undercooked or unsafe</li>
+            <li>Packaging issues that affect food quality</li>
+          </ul>
+        </div>
+
+        <div class="policy-section" id="delivery-delays">
+          <h3><i class="fas fa-clock"></i> 4. Delivery Delays</h3>
+          <p>For orders with significant delays, we offer the following compensation:</p>
+          
+          <div class="highlight">
+            <p><strong>15+ Minutes Delay:</strong> 20% discount on your next order</p>
+          </div>
+          
+          <div class="warning">
+            <p><strong>30+ Minutes Delay:</strong> Full refund available upon request</p>
+          </div>
+          
+          <ul>
+            <li><strong>Automatic Notifications:</strong> You'll receive real-time updates on order status</li>
+            <li><strong>Delay Compensation:</strong> Automatically applied to your account</li>
+            <li><strong>Communication:</strong> Our team will proactively inform you of any delays</li>
+            <li><strong>Alternative Options:</strong> We may offer alternative menu items if your original choice is unavailable</li>
+          </ul>
+          
+          <p><strong>Delay Categories:</strong></p>
+          <ul>
+            <li><strong>Minor Delay:</strong> 5-15 minutes (no compensation)</li>
+            <li><strong>Moderate Delay:</strong> 15-30 minutes (20% discount on next order)</li>
+            <li><strong>Significant Delay:</strong> 30+ minutes (full refund available)</li>
+          </ul>
+        </div>
+
+        <div class="policy-section" id="special-circumstances">
+          <h3><i class="fas fa-heart"></i> 5. Special Circumstances</h3>
+          <p>We understand that emergencies and special situations can arise:</p>
+          
+          <div class="info">
+            <p><strong>Medical Emergencies:</strong> Full refund with appropriate documentation (medical certificate, hospital admission, etc.)</p>
+          </div>
+          
+          <div class="info">
+            <p><strong>Campus Closures:</strong> Full refund for all affected orders due to unexpected campus closures</p>
+          </div>
+          
+          <div class="info">
+            <p><strong>Technical Issues:</strong> Compensation based on the inconvenience caused by system failures</p>
+          </div>
+          
+          <ul>
+            <li><strong>Family Emergencies:</strong> Case-by-case evaluation with appropriate documentation</li>
+            <li><strong>Weather Conditions:</strong> Full refund for orders affected by severe weather</li>
+            <li><strong>Power Outages:</strong> Automatic refunds for orders during campus power failures</li>
+            <li><strong>Staff Shortages:</strong> Proactive communication and compensation for service disruptions</li>
+          </ul>
+          
+          <div class="warning">
+            <p><strong>Documentation Required:</strong> For special circumstances, please provide appropriate documentation to support your refund request.</p>
+          </div>
+        </div>
+
+        <div class="policy-section" id="refund-methods">
+          <h3><i class="fas fa-credit-card"></i> 6. Refund Methods</h3>
+          <p>Refunds are processed through the original payment method used for the order:</p>
+          
+          <ul>
+            <li><strong>Credit/Debit Cards:</strong> Refunded to the same card within 3-5 business days</li>
+            <li><strong>UPI Payments:</strong> Refunded to the same UPI ID within 24-48 hours</li>
+            <li><strong>Digital Wallets:</strong> Refunded to Paytm, PhonePe, Google Pay accounts within 24-48 hours</li>
+            <li><strong>Net Banking:</strong> Refunded to the same bank account within 2-3 business days</li>
+            <li><strong>Cash Payments:</strong> Cash refund available at campus cafeterias within 24 hours</li>
+          </ul>
+          
+          <div class="highlight">
+            <p><strong>Important:</strong> Refunds are always processed to the original payment method for security and compliance reasons.</p>
+          </div>
+          
+          <p><strong>Refund Processing Steps:</strong></p>
+          <ul>
+            <li>Refund request is received and validated</li>
+            <li>Order status is verified</li>
+            <li>Refund amount is calculated</li>
+            <li>Refund is processed through payment gateway</li>
+            <li>Confirmation email is sent to customer</li>
+          </ul>
+        </div>
+
+        <div class="policy-section" id="dispute-resolution">
+          <h3><i class="fas fa-gavel"></i> 7. Dispute Resolution</h3>
+          <p>If you disagree with a refund decision or have concerns about our policy:</p>
+          
+          <ul>
+            <li><strong>First Level:</strong> Contact our customer support team for immediate resolution</li>
+            <li><strong>Escalation:</strong> Request escalation to a senior support representative</li>
+            <li><strong>Management Review:</strong> Complex cases are reviewed by management</li>
+            <li><strong>Documentation:</strong> Provide all relevant information and evidence</li>
+            <li><strong>Timeline:</strong> Most disputes are resolved within 48-72 hours</li>
+          </ul>
+          
+          <div class="warning">
+            <p><strong>Appeal Process:</strong> If you're still not satisfied, you may appeal the decision through our formal appeal process.</p>
+          </div>
+          
+          <p><strong>Appeal Process:</strong></p>
+          <ul>
+            <li>Submit a formal appeal within 7 days of the initial decision</li>
+            <li>Include all relevant documentation and evidence</li>
+            <li>Appeal is reviewed by a senior management team</li>
+            <li>Final decision is communicated within 5 business days</li>
+            <li>Decision is binding and final</li>
+          </ul>
+        </div>
+
+        <div class="policy-section" id="contact">
+          <h3><i class="fas fa-envelope"></i> 8. Contact Information</h3>
+          <p>For refund and cancellation requests, please contact us through the following channels:</p>
+          
+          <div class="highlight">
+            <p><strong>Primary Contact:</strong> support@cafeaura.com</p>
+            <p><strong>Phone Support:</strong> +91 97893 78657</p>
+            <p><strong>Response Time:</strong> Within 2 hours during business hours</p>
+          </div>
+          
+          <p><strong>Business Hours:</strong></p>
+          <ul>
+            <li><strong>Monday - Friday:</strong> 8:00 AM - 10:00 PM IST</li>
+            <li><strong>Saturday - Sunday:</strong> 9:00 AM - 11:00 PM IST</li>
+            <li><strong>Holidays:</strong> 10:00 AM - 8:00 PM IST</li>
+          </ul>
+          
+          <p><strong>Emergency Support:</strong> Available 24/7 for critical issues through our app's emergency contact feature.</p>
+          
+          <div class="info">
+            <p><strong>Best Practices:</strong> For faster resolution, please include your order number, issue description, and any relevant photos or documentation when contacting support.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <h3>Need Help with a Refund?</h3>
+      <p>Our support team is here to help you with any refund or cancellation requests. Don't hesitate to reach out for assistance.</p>
+      
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:support@cafeaura.com">support@cafeaura.com</a>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <a href="tel:+919789378657">+91 97893 78657</a>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-clock"></i>
+          <span>Response within 2 hours</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-top">
+        <div class="footer-section">
+          <h4>Cafeaura</h4>
+          <p>Revolutionizing campus dining with smart technology and seamless user experience.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <p><a href="index.html">Home</a></p>
+          <p><a href="about-us.html">About Us</a></p>
+          <p><a href="contact-us.html">Contact</a></p>
+        </div>
+        <div class="footer-section">
+          <h4>Legal</h4>
+          <p><a href="privacy-policy.html">Privacy Policy</a></p>
+          <p><a href="terms-conditions.html">Terms & Conditions</a></p>
+          <p><a href="refund-policy.html">Refund Policy</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Cafeaura | Built for Campus Cafeteria | All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar Scroll Effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 100) {
+        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+      } else {
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.boxShadow = 'none';
+      }
+    });
+
+    // Smooth Scrolling for Table of Contents
+    document.querySelectorAll('.toc a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Highlight current section in TOC
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('.policy-section');
+      const tocLinks = document.querySelectorAll('.toc a');
+      
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (window.scrollY >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      tocLinks.forEach(link => {
+        link.style.color = '';
+        if (link.getAttribute('href') === `#${current}`) {
+          link.style.color = 'var(--primary)';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

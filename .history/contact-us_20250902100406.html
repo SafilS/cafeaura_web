@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Cafeaura</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #ff6b35;
+      --primary-dark: #e55a2b;
+      --secondary: #2c3e50;
+      --accent: #f39c12;
+      --text-dark: #2c3e50;
+      --text-light: #7f8c8d;
+      --bg-light: #f8f9fa;
+      --bg-white: #ffffff;
+      --shadow: 0 10px 30px rgba(0,0,0,0.1);
+      --shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
+      --gradient: linear-gradient(135deg, #ff6b35 0%, #f39c12 100%);
+      --gradient-dark: linear-gradient(135deg, #e55a2b 0%, #d68910 100%);
+    }
+
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+
+    body { 
+      font-family: 'Inter', sans-serif; 
+      background: var(--bg-white); 
+      color: var(--text-dark); 
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      z-index: 1000;
+      padding: 1rem 0;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Page Header */
+    .page-header {
+      background: var(--gradient);
+      color: white;
+      padding: 8rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      animation: float 20s linear infinite;
+    }
+
+    .page-header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .page-header h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .page-header p {
+      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+      opacity: 0.95;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .section-header p {
+      max-width: 600px;
+      margin: 0 auto;
+      color: var(--text-light);
+      font-size: 1.1rem;
+    }
+
+    /* Contact Grid */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 3rem;
+    }
+
+    .contact-info-section h3,
+    .contact-form-section h3 {
+      color: var(--text-dark);
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--bg-light);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 107, 53, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-item i {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-top: 0.2rem;
+    }
+
+    .contact-item h4 {
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .contact-item p {
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .contact-item a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      color: var(--primary-dark);
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background: var(--bg-light);
+      padding: 2rem;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 107, 53, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid rgba(255, 107, 53, 0.2);
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      background: var(--bg-white);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+    }
+
+    .contact-submit-btn {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      background: var(--gradient);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+
+    .contact-submit-btn:hover {
+      background: var(--gradient-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* Social Links */
+    .social-links {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .social-links h3 {
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: var(--gradient);
+      color: white;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+      background: var(--gradient-dark);
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      background: var(--bg-light);
+      padding: 5rem 0;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .faq-item {
+      background: var(--bg-white);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 107, 53, 0.1);
+    }
+
+    .faq-item h4 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .faq-item p {
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* Office Hours */
+    .office-hours {
+      background: var(--bg-white);
+      padding: 5rem 0;
+    }
+
+    .hours-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .hours-card {
+      background: var(--bg-light);
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+      border: 1px solid rgba(255, 107, 53, 0.1);
+    }
+
+    .hours-card h4 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .hours-card .time {
+      font-size: 1.1rem;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .hours-card .days {
+      color: var(--text-light);
+      margin-top: 0.5rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--secondary);
+      color: white;
+      padding: 3rem 2rem 1rem;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    .footer-section h4 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-section p, .footer-section a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      line-height: 1.6;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hours-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .social-icons {
+        gap: 1rem;
+      }
+
+      .social-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Cafeaura</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="contact-us.html">Contact</a></li>
+        <li><a href="privacy-policy.html">Privacy</a></li>
+        <li><a href="terms-conditions.html">Terms</a></li>
+        <li><a href="refund-policy.html">Refund</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="page-header-content">
+      <h1>Contact Us</h1>
+      <p>We're here to help with any questions, concerns, or feedback</p>
+    </div>
+  </div>
+
+  <!-- Contact Information & Form -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <h2>Get in Touch</h2>
+        <p>Have a question or need support? We'd love to hear from you!</p>
+      </div>
+      
+      <div class="contact-grid">
+        <div class="contact-info-section">
+          <h3>Contact Information</h3>
+          
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <h4>Office Address</h4>
+              <p>Tech Park Campus<br>Innovation Hub, Block A<br>Bangalore, Karnataka 560001<br>India</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <div>
+              <h4>Phone Numbers</h4>
+              <p><a href="tel:+919789378657">+91 97893 78657</a><br>
+              <a href="tel:+919876543210">+91 98765 43210</a><br>
+              <small>Monday - Friday: 9:00 AM - 6:00 PM IST</small></p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h4>Email Addresses</h4>
+              <p><a href="mailto:info@cafeaura.com">info@cafeaura.com</a><br>
+              <a href="mailto:support@cafeaura.com">support@cafeaura.com</a><br>
+              <a href="mailto:business@cafeaura.com">business@cafeaura.com</a></p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-clock"></i>
+            <div>
+              <h4>Business Hours</h4>
+              <p><strong>Monday - Friday:</strong> 8:00 AM - 10:00 PM<br>
+              <strong>Saturday - Sunday:</strong> 9:00 AM - 11:00 PM<br>
+              <strong>Holidays:</strong> 10:00 AM - 8:00 PM</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form-section">
+          <h3>Send us a Message</h3>
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" required placeholder="Enter your full name">
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required placeholder="Enter your email address">
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Subject *</label>
+              <select id="subject" name="subject" required>
+                <option value="">Select a subject</option>
+                <option value="general">General Inquiry</option>
+                <option value="support">Technical Support</option>
+                <option value="billing">Billing Question</option>
+                <option value="feedback">Feedback & Suggestions</option>
+                <option value="partnership">Partnership Opportunities</option>
+                <option value="campus">Campus Integration</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" rows="5" required placeholder="Please describe your inquiry in detail..."></textarea>
+            </div>
+            
+            <button type="submit" class="contact-submit-btn">
+              <i class="fas fa-paper-plane"></i>
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="social-links">
+        <h3>Follow Us on Social Media</h3>
+        <div class="social-icons">
+          <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Office Hours -->
+  <section class="office-hours">
+    <div class="container">
+      <div class="section-header">
+        <h2>Office Hours & Support</h2>
+        <p>We're available when you need us most</p>
+      </div>
+      
+      <div class="hours-grid">
+        <div class="hours-card">
+          <h4>Customer Support</h4>
+          <div class="time">24/7</div>
+          <div class="days">Available round the clock for urgent issues</div>
+        </div>
+        
+        <div class="hours-card">
+          <h4>Technical Support</h4>
+          <div class="time">8:00 AM - 10:00 PM</div>
+          <div class="days">Monday - Sunday</div>
+        </div>
+        
+        <div class="hours-card">
+          <h4>Business Development</h4>
+          <div class="time">9:00 AM - 6:00 PM</div>
+          <div class="days">Monday - Friday</div>
+        </div>
+        
+        <div class="hours-card">
+          <h4>Emergency Support</h4>
+          <div class="time">24/7</div>
+          <div class="days">Critical system issues only</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+        <p>Quick answers to common questions</p>
+      </div>
+      
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h4>How quickly do you respond to inquiries?</h4>
+          <p>We typically respond to all inquiries within 2-4 hours during business hours. For urgent technical issues, we aim to respond within 30 minutes.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h4>Can I schedule a demo for my campus?</h4>
+          <p>Absolutely! We'd love to show you how Cafeaura can transform your campus dining experience. Contact our business development team to schedule a personalized demo.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h4>What payment methods do you accept?</h4>
+          <p>We accept all major credit cards, UPI, digital wallets (Paytm, PhonePe, Google Pay), and net banking. We're also working on adding cryptocurrency payments.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h4>Do you provide training for cafeteria staff?</h4>
+          <p>Yes! We provide comprehensive training for cafeteria staff and administrators to ensure smooth integration and operation of our platform.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h4>How can I report a bug or technical issue?</h4>
+          <p>You can report bugs through our support email, contact form, or directly through the app. Please include screenshots and detailed descriptions for faster resolution.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h4>Do you offer custom solutions for specific campuses?</h4>
+          <p>Yes, we understand that each campus has unique needs. Our team works closely with you to customize the platform according to your specific requirements and workflows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-top">
+        <div class="footer-section">
+          <h4>Cafeaura</h4>
+          <p>Revolutionizing campus dining with smart technology and seamless user experience.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <p><a href="index.html">Home</a></p>
+          <p><a href="about-us.html">About Us</a></p>
+          <p><a href="contact-us.html">Contact</a></p>
+        </div>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <p><a href="contact-us.html">Contact Us</a></p>
+          <p><a href="downloads/Cafeaura.apk" download>Download APK</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Cafeaura | Built for Campus Cafeteria | All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar Scroll Effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 100) {
+        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+      } else {
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.boxShadow = 'none';
+      }
+    });
+
+    // Contact Form Submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(this);
+      const name = formData.get('name');
+      const email = formData.get('email');
+      const subject = formData.get('subject');
+      const message = formData.get('message');
+      
+      // Simple validation
+      if (!name || !email || !subject || !message) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+      
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+      
+      // Simulate form submission
+      alert('Thank you for your message! We will get back to you within 24 hours.');
+      this.reset();
+    });
+
+    // Smooth Scrolling for Navigation Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
